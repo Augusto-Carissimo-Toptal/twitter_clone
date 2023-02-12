@@ -1,0 +1,9 @@
+/tmp/cache/*
+/tmp/development_secret.txt
+/tmp/restart.txt
+
+/db/development.sqlite3
+/db/test.sqlite3
+
+/log/development.log
+/log/test.log
