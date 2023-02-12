@@ -1,0 +1,23 @@
+<h1><%= "#{@user.name}, #{@user.handle}" %></h1>
+
+<h1> Tweets </h1>
+<ul>
+  <% @user.tweets.each do |tweet| %>
+    <li>
+      <%= "#{tweet.content}" %>
+
+    </li>
+  <% end %>
+</ul>
+
+<h1> Tweets liked </h1>
+<ul>
+  <% @user.liked_tweet.each do |tweet| %>
+    <li>
+      <%= "#{tweet.content}" %>
+      <%= "#{tweet.user.name}" %>
+
+    </li>
+  <% end %>
+</ul>
+

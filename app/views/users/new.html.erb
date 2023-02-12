@@ -1,0 +1,16 @@
+<h3>Create a new user</h3>
+<%= form_with scope: :user, url: users_path, local: true do |form| %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :handle %><br>
+    <%= form.text_field :handle %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
