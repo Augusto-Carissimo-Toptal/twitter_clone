@@ -1,9 +1,11 @@
 <h1> Users </h1>
 
-<tbody>
-  <% @users.each do |user| %>
-    <tr>
-      <td> <%= user.handle %> (<%= user.name %>) <td> <br>
-    </tr>
-  <% end %>
-</tbody>
+<table>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td> <%= user.handle %> (<%= user.name %>) <td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
