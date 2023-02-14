@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:name, :handle))
+    @user = User.new(user_params)
     if @user.save
       flash[:notice] = "User created!"
       redirect_to @user
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(params.require(:user).permit(:name, :handle))
+    if @user.update(user_params)
       flash[:notice] = "User edited!"
       redirect_to @user
     else
@@ -42,5 +42,9 @@ class UsersController < ApplicationController
   private
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :handle)
   end
 end
