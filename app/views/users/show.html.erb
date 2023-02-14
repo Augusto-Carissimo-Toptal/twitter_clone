@@ -1,5 +1,11 @@
 <h1><%= "#{@user.name}, #{@user.handle}" %></h1>
-
+<table>
+  <tr>
+    <td> <%= link_to 'Return to Users', users_path %> <td> |
+    <td> <%= link_to 'Edit', edit_user_path(@user) %> <td> |
+    <td> <%= button_to 'Delete', user_path(@user), method: :delete %> </td>
+  </tr>
+</table>
 <h1> Tweets </h1>
 <ul>
   <% @user.tweets.each do |tweet| %>
