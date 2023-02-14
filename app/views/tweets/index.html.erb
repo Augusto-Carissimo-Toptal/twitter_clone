@@ -1,0 +1,17 @@
+<h1> Tweet </h1>
+
+<table>
+  <tbody>
+    <% @tweets.each do |tweet| %>
+      <tr>
+        <td> <%= tweet.content %> <td>
+        <td> <%= link_to 'Show', tweet_path(tweet) %> <td>
+
+      </tr>
+      <tr>
+        <td> <%= tweet.likes.count%> </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
