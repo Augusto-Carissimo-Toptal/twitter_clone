@@ -1,15 +1,20 @@
 <h1> Tweet </h1>
 
 <table>
+  <tr>
+    <td> <%= link_to 'Users', users_path %> <td> |
+    <td> <%= link_to 'Hashtags', '' %> <td> |
+  </tr>
+</table>
+
+<table>
   <tbody>
     <% @tweets.each do |tweet| %>
       <tr>
-        <td> <%= tweet.content %> <td>
-        <td> <%= link_to 'Show', tweet_path(tweet) %> <td>
-
+        <td> <%= tweet.content %> by <%= tweet.user.handle %> <td>
       </tr>
       <tr>
-        <td> <%= tweet.likes.count%> </td>
+        <td> Like by  <%= tweet.likes.count%> users </td>
 
       </tr>
     <% end %>
