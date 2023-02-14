@@ -1,0 +1,24 @@
+<% if @user.errors.any? %>
+  <h2> Create User fail: </h2>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: @user, local: true) do |form| %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :handle %><br>
+    <%= form.text_field :handle %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>

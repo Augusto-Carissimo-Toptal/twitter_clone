@@ -1,26 +1,5 @@
 <h1>Create a new user</h1>
 
-<% if @user.errors.any? %>
-  <h2> Create User fail: </h2>
-  <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'form' %>
 
-<%= form_with scope: :user, url: users_path, local: true do |form| %>
-
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
-  <p>
-    <%= form.label :handle %><br>
-    <%= form.text_field :handle %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-
-<% end %>
+<td> <%= link_to 'Cancel and return to Users', users_path %> <td> |
