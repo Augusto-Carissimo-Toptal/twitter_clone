@@ -6,24 +6,27 @@
     <td> <%= button_to 'Delete', user_path(@user), method: :delete %> </td>
   </tr>
 </table>
-<h1> Tweets </h1>
-<ul>
-  <% @user.tweets.each do |tweet| %>
-    <li>
-      <%= "#{tweet.content}" %>
 
-    </li>
+<% if @user.tweets.any? %>
+  <h3>Tweets</h3>
+    <ul>
+      <% @user.tweets.each do |tweet| %>
+        <li>
+          <%= "#{tweet.content}" %>
+
+        </li>
+      <% end %>
+    </ul>
   <% end %>
-</ul>
 
-<h1> Tweets liked </h1>
-<ul>
-  <% @user.liked_tweet.each do |tweet| %>
-    <li>
-      <%= "#{tweet.content}" %>
-      <%= "#{tweet.user.name}" %>
+<% if @user.liked_tweets.any? %> <h1> Tweets liked </h1>
+    <ul>
+      <% @user.liked_tweets.each do |tweet| %>
+        <li>
+          <%= "#{tweet.content}" %>
+          <%= "#{tweet.user.name}" %>
 
-    </li>
-  <% end %>
-</ul>
-
+        </li>
+      <% end %>
+    </ul>
+<% end %>
