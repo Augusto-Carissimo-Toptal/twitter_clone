@@ -1,7 +1,16 @@
 <h1> Users </h1>
+
+<table>
+  <tr>
+    <td> <%= link_to 'Tweets', tweets_path %> <td> |
+    <td> <%= link_to 'Hashtags', '' %> <td> |
+  </tr>
+</table>
+
 <p>
   <%= link_to 'Create a new User', new_user_path %>
 </p>
+
 <table>
   <tbody>
     <% @users.each do |user| %>
