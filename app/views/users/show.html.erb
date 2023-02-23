@@ -19,7 +19,8 @@
     </ul>
   <% end %>
 
-<% if @user.liked_tweets.any? %> <h1> Tweets liked </h1>
+<% if @user.liked_tweets.any? %>
+  <h1> Tweets liked </h1>
     <ul>
       <% @user.liked_tweets.each do |tweet| %>
         <li>
