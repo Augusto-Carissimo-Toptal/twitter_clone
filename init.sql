@@ -1,0 +1,2 @@
+CREATE USER augusto;
+ALTER USER augusto WITH SUPERUSER;
