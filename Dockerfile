@@ -1,6 +1,9 @@
-FROM ruby:3.1.3
+FROM ruby:3.1.2
 
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client postgresql-contrib libpq-dev build-essential && rm -rf /var/cache/apk/*
+ARG RAILS_ENV
+ARG PORT=3000
+
+RUN apt-get update -qq && apt-get install -y nodejs libpq-dev build-essential
 
 WORKDIR /app
 
@@ -9,9 +12,12 @@ RUN gem install bundler
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
-COPY . /app/
+ADD . /app
 
-ENTRYPOINT ["bin/rails"]
-CMD ["s", "-b", "0.0.0.0"]
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
 
-EXPOSE 3000
+EXPOSE ${PORT}
+
+CMD bin/rails server -p 3000 -b '0.0.0.0'
